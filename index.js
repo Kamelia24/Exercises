@@ -56,16 +56,7 @@ function sortArray(arr){
     console.log(output)
 }
 sortArray([-3,8,7,6,5,-4,3,1,2])
-
-/*function time(){
-    let d=new Date();
-    
-        output=d.getHours()+":"+d.getMinutes()+":"+d.getSeconds();
-        console.log(output);
-    
-}
-time();*/
-function startTime() {
+/*function startTime() {
     var today = new Date();
     var h = today.getHours();
     var m = today.getMinutes();
@@ -76,11 +67,31 @@ function startTime() {
     s = checkTime(s);
     var output=h + ":" + m + ":" + s;
     console.log(output);
-    var t = setTimeout(startTime, 500);
+    var t = setTimeout(startTime, 1000);
 }
   }
   function checkTime(i) {
     if (i < 10) {i = "0" + i};  // add zero in front of numbers < 10
     return i;
   }
-  startTime();
+  startTime();*/
+var date=new Date();
+var clock={
+    
+    hour:date.getHours(),
+    minute:date.getMinutes(),
+    second:date.getSeconds(),
+    start:function(){
+        var output=this.hour+":";
+        if(this.minute<10){
+            output+="0";
+        }
+        output+=this.minute+":";
+        if(this.second<10){
+            output+="0";
+        }
+        output+=this.second;
+        console.log(output);
+    }
+}
+var t=setInterval(clock.start,1000);
