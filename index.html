@@ -1,9 +1,21 @@
 <html>
     <head>
-
+        <link rel="stylesheet" type="text/css" href="myCSS.css">
     </head>
     <body>
-
+        <div id="failed">You have to complete all input fields</div>
+        <form id="my_form" action="form.js">
+            <label>First name</label><br>
+            <input type="text" id="first" ><br>
+            <label>Last name</label><br>
+            <input type="text" id="last" ><br>
+            <label>email</label><br>
+            <input type="text" id="mail" ><br>
+            <label>phone number</label><br>
+            <input type="text" id="phnumber" ><br><br>
+            <input type="submit">
+        </form>
     </body>
 </html>
-<script src="index.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+<script src="form.js"></script>
