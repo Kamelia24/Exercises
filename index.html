@@ -3,17 +3,49 @@
         <link rel="stylesheet" type="text/css" href="myCSS.css">
     </head>
     <body>
-        <div id="failed">You have to complete all input fields</div>
+        <div id="failed">You have to complete all input fields correctly</div>
         <form id="my_form">
-            <label>First name</label><br>
-            <input type="text" id="first_name" ><br>
-            <label>Last name</label><br>
-            <input type="text" id="last" ><br>
-            <label>email</label><br>
-            <input type="text" id="mail" ><br>
-            <label>phone number</label><br>
-            <input type="text" id="phnumber" ><br><br>
-            <input type="submit">
+            <input type="text" id="typeofinq" name=""  value="sales" style="visibility:hidden" required><br>
+            
+            <label for="company">Company</label>
+            <input type="radio"  name="company" id="visitor_type" class="company" value="company" required><br>
+            
+            <label for="private_person">private person</label>
+            <input type="radio" name="company" id="visitor_type" value="private_person" required><br>
+            
+            <div id="comp"></div><br>
+            
+            <label for="first_name">First name</label>
+            <input type="text" id="first_name" name="first_name"  required><br>
+            
+            <label for="email">email</label>
+            <input type="text" id="email" name="email"  required><br>
+            
+            <label for="company_website">company website</label>
+            <input type="text" id="company_website"  name="company_website" required><br>
+            
+            <label for="title">title</label>
+            <input type="text" id="title" name="title" required><br>
+            
+            <label for="country">Country</label>
+            <select id="country" name="country" >
+                <option value="24">Bulgaria</option>
+                <option value="15">Austria</option>
+            </select><br>
+            
+            <label for="subscribe">subcribe</label>
+              <select id="subscribe" name="subscribe" >
+                <option value="Zoiper for Desktop (windows, mac, linux)">Zoiper for Desktop (windows, mac, linux)</option>
+                <option value="Zoiper for Android">Zoiper for Android</option>
+                <option value="Zoiper for iOS">Zoiper for iOS</option>
+            
+        </select><br>
+        
+        <label for="">Question</label>
+        <input type="text" value="question" name="" ><br>
+        <br><br>
+        
+        <input type="submit">
         </form>
         <div id="successfull">Successfully send</div>
     </body>
