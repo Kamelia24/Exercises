@@ -15,7 +15,7 @@ function add(){
 $(document).ready(function(){
 $('#my_form').on('submit',function(event){
     event.preventDefault();
-    var typeofinq1=$("input#typeofinq").val();
+    /*var typeofinq1=$("input#typeofinq").val();
     var visitor_type1 = $("input#visitor_type").val();
     var company_size1;
     var project_intended_for1;
@@ -45,9 +45,31 @@ $('#my_form').on('submit',function(event){
         dataString.company_size=company_size1;
         dataString.project_intended_for=project_intended_for1;
         //dataString+='&company_size'+company_size+'&project_intended_for'+project_intended_for;
-    }
-
+    }*/
     //dataString+='first_name'+first_name+'&email'+email+'&company_website'+company_website+'&title'+title+'&country'+country+'&subscribe'+subscribe+'&question'+question; 
+    var dataString={};
+    var inputs=document.getElementsByTagName("input");
+    var selected=document.getElementsByTagName("select");
+    form=document.getElementsByTagName("form");
+    for(let i=0;i<inputs.length-1;i++){
+        dataString[inputs[i].id]=inputs[i].value;
+        
+
+    }
+    for(let i=0;i<selected.length;i++){
+        dataString[selected[i].id]=selected[i].value;
+        
+    }
+    //console.log(dataString);
+    var serialized=$( "form" ).serialize();
+    //console.log( serialized );
+    var obj={};
+    var mass=serialized.split("&");
+    for(let i=0;i<mass.length;i++){
+        let mass1=mass[i].split("=");
+        obj[mass1[0]]=mass1[1];
+    }
+    console.log(obj)
     $.ajax({
         
         url: "http://test.zoiper.com/en/contact",
@@ -55,23 +77,27 @@ $('#my_form').on('submit',function(event){
             xhr.setRequestHeader('X-Requested-With', 'XMLHttpRequest');
         },
         type:   'POST',
-        data: dataString,
+        data: dataString ,
         success: function(msg){
             console.log(msg);
             for(var key in msg){
                 if(key=="success"){
-                     $("#successfull").css("visibility", "visible");
-                     $("#failed").css("visibility","hidden");
+                    $("#successfull").css("visibility", "visible");
+                    $("#failed").css("visibility","hidden");
+                    document.getElementById("SubmitButton").disabled = true;
                     break;
                 }else{
                     $("#successfull").css("visibility","hidden");
                    $("#failed").css("visibility","visible");
+                   document.getElementById("SubmitButton").disabled = false;
                 }
             }
+            
             //$("#successfull").css("visibility", "visible");
         },
         error: function() {
             $("#failed").css("visibility","visible")
+            document.getElementById("SubmitButton").disabled = false;
         }
     });
 });
