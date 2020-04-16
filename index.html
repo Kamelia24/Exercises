@@ -3,15 +3,17 @@
         <link rel="stylesheet" type="text/css" href="myCSS.css">
     </head>
     <body>
-        <div id="failed">You have to complete all input fields correctly</div>
-        <form id="my_form">
-            <input type="text" id="typeofinq" name=""  value="sales" style="visibility:hidden" required><br>
+        <div id="failed">You have to complete all input fields correctly
+
+        </div>
+        <form id="my_form" > 
+            <input type="text" id="typeofinq" name="typeofinq"  value="sales" style="visibility:hidden" required><br>
             
             <label for="company">Company</label>
-            <input type="radio"  name="company" id="visitor_type" class="company" value="company" required><br>
+            <input type="radio"  name="visitor_type" id="visitor_type" class="company" value="company" required><br>
             
             <label for="private_person">private person</label>
-            <input type="radio" name="company" id="visitor_type" value="private_person" required><br>
+            <input type="radio" name="visitor_type" id="visitor_type" value="private_person" required><br>
             
             <div id="comp"></div><br>
             
@@ -41,13 +43,13 @@
             
         </select><br>
         
-        <label for="">Question</label>
-        <input type="text" value="question" name="" ><br>
+        <label for="question">Question</label>
+        <input type="text" name="question" id="question" value="question" name="" ><br>
         <br><br>
         
-        <input type="submit">
+        <input type="submit" id="SubmitButton" name="SubmitButton">
         </form>
-        <div id="successfull">Successfully send</div>
+        <div id="successfull">Successfully sent</div>
     </body>
 </html>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
