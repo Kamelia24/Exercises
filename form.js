@@ -1,3 +1,4 @@
+
 var comp=document.getElementsByClassName("company");
 comp[0].addEventListener("click",add)
 var isAdded=false;
@@ -63,21 +64,14 @@ $('#my_form').on('submit',function(event){
     //console.log(dataString);
     var serialized=$( "form" ).serialize();
     //console.log( serialized );
-    var obj={};
-    var mass=serialized.split("&");
-    for(let i=0;i<mass.length;i++){
-        let mass1=mass[i].split("=");
-        obj[mass1[0]]=mass1[1];
-    }
-    console.log(obj)
     $.ajax({
         
-        url: "http://test.zoiper.com/en/contact",
+        url: "http://localhost:3000/",
         beforeSend : function (xhr) {
             xhr.setRequestHeader('X-Requested-With', 'XMLHttpRequest');
         },
         type:   'POST',
-        data: dataString ,
+        data: serialized ,
         success: function(msg){
             console.log(msg);
             for(var key in msg){
