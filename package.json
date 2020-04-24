@@ -1,0 +1,24 @@
+{
+  "name": "test-kami",
+  "version": "1.0.0",
+  "description": "some description here",
+  "main": "app.js",
+  "scripts": {
+    "start": "nodemon app.js",
+    "test": "test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Kamelia24/Exercises.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Kamelia24/Exercises/issues"
+  },
+  "homepage": "https://github.com/Kamelia24/Exercises#readme",
+  "dependencies": {
+    "express": "^4.17.1",
+    "nodemon": "^2.0.3"
+  }
+}
