@@ -66,10 +66,10 @@ $('#my_form').on('submit',function(event){
     //console.log( serialized );
     $.ajax({
         
-        url: "http://localhost:3000/",
-        beforeSend : function (xhr) {
+        url: "http://localhost:3000/contact",
+       /* beforeSend : function (xhr) {
             xhr.setRequestHeader('X-Requested-With', 'XMLHttpRequest');
-        },
+        },*/
         type:   'POST',
         data: serialized ,
         success: function(msg){
