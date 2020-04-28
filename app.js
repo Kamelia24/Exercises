@@ -26,17 +26,6 @@ app.get("/",(req, res) => {
         res.end();
 
 });
-/*app.post("/contact",(req, res) => {
-        res.json({
-        "visitor_type": "Value is required",
-        "first_name": "Value is required",
-        "email": "Value is required",
-        "country": "Value is required",
-        "subscribe": "Value is required",
-        "typeofinq": "Value is required and can not be empty"
-        });
-    
-});*/
 app.post('/contact', [
         check('visitor_type')
           .isIn(["company","private_person"])
@@ -48,20 +37,27 @@ app.post('/contact', [
           .isEmail()
           .withMessage('This is not valid email address'),
         check('country')
-          .isIn(["Bulgaria","Austria"])
+          .isIn(["24","15"])
           .withMessage('Value is required'),
         check('subscribe')
           .isIn(["Zoiper for Desktop (windows, mac, linux)","Zoiper for Android","Zoiper for iOS"])
           .withMessage('Value is required'),
         check('typeofinq')
-          .equals(["sales"])
+          .isIn(["sales"])
           .withMessage('Value is required and can not be empty')
       ], (req, res) => {
         const errors = validationResult(req);
-        res.render('contact', {
-          data: req.body,
-          errors: errors.mapped()
-        });
+       
+        if(errors["errors"].length==0){console.log("ok") ;return res.json({"success":"success"});}
+        else{
+                var obj={};
+                for(let i=0;i<errors["errors"].length;i++){
+                        obj[errors["errors"][i]["param"]]=errors["errors"][i]["msg"];
+                        return res.json(obj);
+                }
+        }
+        console.log(errors["errors"].length==0);
+        
       });
 app.get("/home",(req, res) => {
     
