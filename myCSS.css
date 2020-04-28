@@ -1,6 +1,6 @@
 #failed{
     color: red;
-    visibility: hidden;
+    visibility: none;
 }
 #successfull{
     color: green;
